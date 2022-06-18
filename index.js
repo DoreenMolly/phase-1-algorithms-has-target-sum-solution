@@ -2,17 +2,30 @@ function hasTargetSum(array, target) {
   // Write your algorithm here
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
+function hasTargetSum(array, target) {
+  let counterIndex = 0
+  let bool = true
+  let finder
+  while(bool){
+    let i = Math.abs(array[counterIndex] - target)
+    finder = array.slice(counterIndex + 1).find((elem)=> elem === i)
+    if(typeof finder === 'number'){
+      bool = false
+    }else{
+      if(array[counterIndex] !== undefined){
+        counterIndex++
+      }else{
+        bool = false
+      }
+    }
+  }
+  if(typeof finder === 'number'){
+    return true
+  }else{
+    return false
+  }
+  
+}
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
